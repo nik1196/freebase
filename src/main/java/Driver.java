@@ -38,7 +38,7 @@ public class Driver {
         Logger.getLogger("akka").setLevel(Level.ERROR);
         String edgeFile = "/nishank/sampleinput/Freebase100.txt";
         SparkConf conf = new SparkConf().setAppName("Freebase");
-        conf.setMaster("");
+        //conf.setMaster("");
         JavaSparkContext sc = new JavaSparkContext(conf);
         inputListRDD = sc.textFile(edgeFile).cache();
 
@@ -56,10 +56,10 @@ public class Driver {
                 vids.put(currentVertexList._1, (long)vids.size()+1);
             }
             if(!vids.containsKey(currentVertexList._2)){
-                vids.put(currentVertexList._1, (long)vids.size()+1);
+                vids.put(currentVertexList._2, (long)vids.size()+1);
             }
         }
-
+        //System.out.println(vids.toString());
         JavaPairRDD<String,String> edgeListRDD = inputEdgesRDD.mapToPair(new EdgeListMapper(vids)).reduceByKey(new EdgeListReducer());
 
         JavaPairRDD<String,String> vertexListRDD = filter(true).mapToPair(new VertexListMapper()).reduceByKey(new VertexListReducer());
@@ -74,6 +74,9 @@ public class Driver {
         inputListRDD = inputListRDD.union(backEdgesRDD);
 
         adjListRDD = inputEdgesRDD.mapToPair(new InputLabelsToVidMapper(vids)).reduceByKey(new InputLabelsToVidReducer());
-
+        Iterator<scala.Tuple2<String,String>> iterator_adjListRDD = adjListRDD.toLocalIterator();
+        while(iterator_adjListRDD.hasNext()) {
+            System.out.println(iterator_adjListRDD.next());
+        }
     }
 }

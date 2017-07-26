@@ -9,7 +9,7 @@ public class AdjacencyListMapper implements PairFunction<String, String,String> 
     public scala.Tuple2<String, String> call(String s){
         String parts [] = s.split("\\s+");
         String k = "";
-        String [] parts2 = new String[2];
+        String [] parts2 = new String[3];
         for(int i=0; i<2; i++)
             parts2[i] = parts[i];
         for(int i=2; i<parts.length; i++)
