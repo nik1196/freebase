@@ -1,6 +1,7 @@
 Driver.class
 Driver$1.class
 Driver$2.class
+VidMapper2.class
 AdjacencyListMapper.class
 BackEdgesMapper.class
 VertexListReducer.class

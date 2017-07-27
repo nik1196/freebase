@@ -1,0 +1,100 @@
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .   
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://rdf.freebase.com/ns/type.object.name>   "footballdb ID"@en      .   
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://rdf.freebase.com/ns/type.property.unique>       "true"  .
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/type.enumeration>   .   
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/2000/01/rdf-schema#label>    "footballdb ID"@en      .   
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/american_football.football_player>  .
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2002/07/owl#FunctionalProperty>      .
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/american_football.football_player>  .   
+<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/type.enumeration>   .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://rdf.freebase.com/ns/type.object.name>   "Discoveries"@en        .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/astronomy.astronomical_discovery>   .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/astronomy.astronomical_observatory> .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://rdf.freebase.com/ns/type.property.unique>       "false" .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://www.w3.org/2000/01/rdf-schema#label>    "Discoveries"@en        .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2000/01/rdf-schema#Property> .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/astronomy.astronomical_observatory> .
+<http://rdf.freebase.com/ns/astronomy.astronomical_observatory.discoveries>     <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/astronomy.astronomical_discovery>   .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://www.w3.org/2000/01/rdf-schema#label>    "Fuel Tank Capacity"@en .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://rdf.freebase.com/ns/type.object.name>   "Fuel Tank Capacity"@en .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/automotive.body_style>      .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/type.float> .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://rdf.freebase.com/ns/type.property.unique>       "true"  .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2002/07/owl#FunctionalProperty>      .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/automotive.body_style>      .
+<http://rdf.freebase.com/ns/automotive.body_style.fuel_tank_capacity>   <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/type.float> .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/2000/01/rdf-schema#label>    "Engine Type"@en        .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://rdf.freebase.com/ns/type.object.name>   "Engine Type"@en        .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/automotive.engine>  .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://rdf.freebase.com/ns/type.property.reverse_property>     <http://rdf.freebase.com/ns/automotive.engine_type.used_in>     .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/automotive.engine_type>     .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2000/01/rdf-schema#Property> .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/automotive.engine>  .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/automotive.engine_type>     .
+<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/2002/07/owl#inverseOf>       <http://rdf.freebase.com/ns/automotive.engine_type.used_in>     .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .   
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/type.int>   .   
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://www.w3.org/2000/01/rdf-schema#label>    "Maximum Number of Passengers"@en       .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://rdf.freebase.com/ns/type.object.name>   "Maximum Number of Passengers"@en       .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://rdf.freebase.com/ns/type.property.unique>       "true"  .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/automotive.trim_level>      .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2002/07/owl#FunctionalProperty>      .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/automotive.trim_level>      .
+<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>       <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/type.int>   .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://rdf.freebase.com/ns/type.property.unique>       "true"  .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://rdf.freebase.com/ns/type.property.expected_type>        <http://rdf.freebase.com/ns/type.datetime>      .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/type.property>      .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://www.w3.org/2000/01/rdf-schema#label>    "First flight"@en       .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://rdf.freebase.com/ns/type.property.schema>       <http://rdf.freebase.com/ns/aviation.aircraft>  .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://rdf.freebase.com/ns/type.object.name>   "First flight"@en       .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2002/07/owl#FunctionalProperty>      .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://www.w3.org/2000/01/rdf-schema#domain>   <http://rdf.freebase.com/ns/aviation.aircraft>  .
+<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>     <http://www.w3.org/2000/01/rdf-schema#range>    <http://rdf.freebase.com/ns/type.datetime>      .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0x2spfl>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.078mgh>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.04n2x3p>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0c37gf0>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0zdc3l9>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0t_5dw0>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0y5ktxb>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0dgqfbl>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.01jr8cw>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_svmh_>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0gtx5wg>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.085vjr>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0cm94_t>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05y3bqk>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_xp07c>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0f8440>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.031mhr>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.01p2mc6>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05fl1b>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0149wl>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0d886c>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.01v3v75>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05xzqqh>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0jvby5>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0jzfb6>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0y_4w3_>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.04gh45>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0p9973n>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05jvs8>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0404b3s>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_grc4j>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.09m956>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0zggpwy>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_thp_r>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0c4fqlh>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0yjzp94>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_99jdg>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0zfgnfc>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0cdfh1>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.02g_zp>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.082y5>    .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.06bmgw>   .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0_tlysd>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0n1y549>  .
+<http://rdf.freebase.com/ns/award.award_winner> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.0dkf25y>  .

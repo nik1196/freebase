@@ -10,7 +10,7 @@ public class VidMapper implements Function2<Integer, Iterator<scala.Tuple3<Strin
     public VidMapper(){
         this.vids = new HashMap<String, Long>();
     }
-    public Iterator<scala.Tuple2<String,String> call(Integer v1, Iterator<scala.Tuple3<String,String,String>> v2) throws Exception {
+    public Iterator<scala.Tuple2<String,String>> call(Integer v1, Iterator<scala.Tuple3<String,String,String>> v2) throws Exception {
         List<scala.Tuple2<String,String>> retList = Lists.newArrayList();
         List<scala.Tuple3<String,String,String>> list = Lists.newArrayList(v2);
         for(int i=0; i<list.size(); i++){

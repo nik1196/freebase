@@ -4,8 +4,10 @@ public class BackEdgesMapper implements Function<String,String>{
     public String call(String s){
         String [] parts = s.split("\\s+");
         String k = "";
-        for (int i=2;i<parts.length; i++)
-            k = k.concat(parts[i]);
+        for (int i=2;i<parts.length; i++) {
+            if (!parts[i].equals("."))
+                k = k.concat(parts[i]);
+        }
         parts[2] = k;
         k = parts[2] + "\t<>\t" + parts[0];
         return  k;
