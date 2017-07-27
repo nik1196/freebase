@@ -7,7 +7,7 @@ public class BackEdgesMapper implements Function<String,String>{
         for (int i=2;i<parts.length; i++)
             k = k.concat(parts[i]);
         parts[2] = k;
-        k = parts[0] +  parts[2];
+        k = parts[2] + "\t<>\t" + parts[0];
         return  k;
     }
 }

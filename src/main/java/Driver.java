@@ -1,7 +1,7 @@
 import org.apache.spark.api.java.*;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.function.*;
-import com.google.common.collect.Lists;
+
 import java.util.*;
 
 import org.apache.log4j.Logger;
@@ -43,40 +43,40 @@ public class Driver {
         inputListRDD = sc.textFile(edgeFile).cache();
 
         JavaRDD<String> inputEdgesRDD = filter(false);
+        JavaRDD<String> backEdgesRDD = inputEdgesRDD.map(new BackEdgesMapper());
+        JavaRDD<scala.Tuple3<String,String,String>>inputEdgesRDDWithBackEdges = inputEdgesRDD.union(backEdgesRDD).map(new EdgeListMapper());
 
-        JavaPairRDD<String,String> adjListRDD = inputEdgesRDD.mapToPair(new AdjacencyListMapper());
+        Iterator<scala.Tuple3<String,String,String>> iterator_inputEdgesRDDWithBackEdges = inputEdgesRDDWithBackEdges.toLocalIterator();
+        while(iterator_inputEdgesRDDWithBackEdges.hasNext())
+            System.out.println(iterator_inputEdgesRDDWithBackEdges.next());
 
-        Iterator<scala.Tuple2<String,String>> adjListIterator = adjListRDD.toLocalIterator();
-        List<scala.Tuple2<String,String>> adjListList = Lists.newArrayList(adjListIterator);
-        HashMap<String,Long> vids = new HashMap<String, Long>(); //vertex-vid mapping
 
-        for(int i=0; i<adjListList.size();i++) {
-            scala.Tuple2<String,String> currentVertexList = adjListList.get(i);
-            if(!vids.containsKey(currentVertexList._1)){
-                vids.put(currentVertexList._1, (long)vids.size()+1);
-            }
-            if(!vids.containsKey(currentVertexList._2)){
-                vids.put(currentVertexList._2, (long)vids.size()+1);
-            }
-        }
-        //System.out.println(vids.toString());
+        //partitioning experiment
+
+        JavaRDD<scala.Tuple2<String,String>> vidRDD = inputEdgesRDDWithBackEdges.mapPartitionsWithIndex(new VidMapper(),false);
+        Iterator<scala.Tuple2<String,String>> iterator_vidRDD = vidRDD.toLocalIterator();
+        while(iterator_vidRDD.hasNext())
+            System.out.println(iterator_vidRDD.next());
+
+        //
+
+        /*JavaPairRDD<String,String> adjListRDD = inputEdgesRDD.mapToPair(new AdjacencyListMapper());
+
         JavaPairRDD<String,String> edgeListRDD = inputEdgesRDD.mapToPair(new EdgeListMapper(vids)).reduceByKey(new EdgeListReducer());
 
-        JavaPairRDD<String,String> vertexListRDD = filter(true).mapToPair(new VertexListMapper()).reduceByKey(new VertexListReducer());
+        JavaPairRDD<String,String> vertexListRDD = filter(true).mapToPair(new VertexListMapper()).reduceByKey(new VertexListReducer());*/
 
 
 
         
-        JavaRDD<String> backEdgesRDD = inputEdgesRDD.map(new BackEdgesMapper());
-        
-        
-        
-        inputListRDD = inputListRDD.union(backEdgesRDD);
 
-        adjListRDD = inputEdgesRDD.mapToPair(new InputLabelsToVidMapper(vids)).reduceByKey(new InputLabelsToVidReducer());
-        Iterator<scala.Tuple2<String,String>> iterator_adjListRDD = adjListRDD.toLocalIterator();
+
+        //adjListRDD = inputEdgesRDD.mapToPair(new InputLabelsToVidMapper(vids)).reduceByKey(new InputLabelsToVidReducer());
+
+
+        /*Iterator<scala.Tuple2<String,String>> iterator_adjListRDD = adjListRDD.toLocalIterator();
         while(iterator_adjListRDD.hasNext()) {
             System.out.println(iterator_adjListRDD.next());
-        }
+        }*/
     }
 }

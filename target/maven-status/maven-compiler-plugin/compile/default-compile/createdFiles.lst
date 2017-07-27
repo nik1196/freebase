@@ -1,11 +1,12 @@
 Driver.class
 Driver$1.class
 Driver$2.class
-EdgeListReducer.class
 AdjacencyListMapper.class
 BackEdgesMapper.class
-EdgeListMapper.class
 VertexListReducer.class
+EdgeListReducer.class
+VidMapper.class
+EdgeListMapper.class
 InputLabelsToVidMapper.class
 AdjacencyListReducer.class
 VertexListMapper.class
