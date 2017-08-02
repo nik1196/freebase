@@ -54,11 +54,11 @@ public class Driver {
         //partitioning experiment
 
         //JavaRDD<scala.Tuple2<String,String>> vidRDD = inputEdgesRDDWithBackEdges.mapPartitionsWithIndex(new VidMapper(),false);
-        JavaRDD<scala.Tuple2<String,String>> vidRDD = inputEdgesRDDWithBackEdges.map(new VidMapper2());
-        /*Iterator<scala.Tuple2<String,String>> iterator_vidRDD = vidRDD.toLocalIterator();
-        while(iterator_vidRDD.hasNext())
-            System.out.println(iterator_vidRDD.next());*/
 
+        JavaRDD<scala.Tuple2<String,String>> vidRDD = inputEdgesRDDWithBackEdges.map(new InputSourceGetter()).distinct().map(new VidMapper2());
+        Iterator<scala.Tuple2<String,String>> iterator_vidRDD = vidRDD.toLocalIterator();
+        while(iterator_vidRDD.hasNext())
+            System.out.println(iterator_vidRDD.next());
         //
 
         /*JavaPairRDD<String,String> adjListRDD = inputEdgesRDD.mapToPair(new AdjacencyListMapper());
@@ -68,8 +68,8 @@ public class Driver {
         JavaRDD<scala.Tuple3<String,String,String>> vertexListRDD = filter(true).map(new VertexListMapper());
 
         Iterator<scala.Tuple3<String,String,String>> iterator_vertexListRDD = vertexListRDD.toLocalIterator();
-        while(iterator_vertexListRDD.hasNext())
-            System.out.println(iterator_vertexListRDD.next());
+        /*while(iterator_vertexListRDD.hasNext())
+            System.out.println(iterator_vertexListRDD.next());/*
 
 
 
