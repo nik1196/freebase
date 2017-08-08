@@ -10,4 +10,5 @@
 /home/nikhil/repos/freebase/src/main/java/EdgeListMapper.java
 /home/nikhil/repos/freebase/src/main/java/VidMapper2.java
 /home/nikhil/repos/freebase/src/main/java/InputLabelsToVidMapper.java
+/home/nikhil/repos/freebase/src/main/java/AdjListWithVidMapper.java
 /home/nikhil/repos/freebase/src/main/java/EdgeListReducer.java

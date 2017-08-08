@@ -9,6 +9,7 @@ EdgeListReducer.class
 VidMapper.class
 InputSourceGetter.class
 EdgeListMapper.class
+AdjListWithVidMapper.class
 InputLabelsToVidMapper.class
 AdjacencyListReducer.class
 VertexListMapper.class
