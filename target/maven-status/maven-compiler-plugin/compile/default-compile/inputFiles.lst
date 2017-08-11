@@ -1,4 +1,6 @@
+/home/nikhil/repos/freebase/src/main/java/JoinedRDDToPairRDDMapper.java
 /home/nikhil/repos/freebase/src/main/java/VertexListReducer.java
+/home/nikhil/repos/freebase/src/main/java/JoinedRDDToPairRDDMapper2.java
 /home/nikhil/repos/freebase/src/main/java/BackEdgesMapper.java
 /home/nikhil/repos/freebase/src/main/java/VidMapper.java
 /home/nikhil/repos/freebase/src/main/java/AdjacencyListReducer.java
@@ -12,3 +14,4 @@
 /home/nikhil/repos/freebase/src/main/java/InputLabelsToVidMapper.java
 /home/nikhil/repos/freebase/src/main/java/AdjListWithVidMapper.java
 /home/nikhil/repos/freebase/src/main/java/EdgeListReducer.java
+/home/nikhil/repos/freebase/src/main/java/InputVerticesGetter.java

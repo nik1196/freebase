@@ -14,6 +14,6 @@ public class EdgeListMapper implements PairFunction<String, String, String> {
             if (!parts[i].equals("."))
                 parts[2] = parts[2].concat(parts[i]);
         }
-        return new Tuple2<String, String>(parts[0],parts[1] + parts[2]);
+        return new Tuple2<String, String>(parts[0],parts[1] + " " + parts[2]);
     }
 }
