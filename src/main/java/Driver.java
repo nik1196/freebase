@@ -58,10 +58,10 @@ public class Driver {
         String edgeFile = "/home/nikhil/repos/freebase/Freebase100.txt";
         SparkConf conf = new SparkConf().setAppName("Freebase");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        inputListRDD = sc.textFile(edgeFile).cache();
+        inputListRDD = sc.textFile(edgeFile).repartition(128);
 
         JavaRDD<String> inputEdgesRDD = filter(false);
-        JavaRDD<String> backEdgesRDD = inputEdgesRDD.filter(new Function<String,Boolean>(){
+     /*   JavaRDD<String> backEdgesRDD = inputEdgesRDD.filter(new Function<String,Boolean>(){
             public Boolean call(String s){
                 String [] parts = s.split("\\s+");
                 for (int i=3;i<parts.length; i++) {
@@ -72,27 +72,34 @@ public class Driver {
                     return false;
                 return true;
             }
-        }).map(new BackEdgesMapper());
-        JavaPairRDD<String, String>completeEdgeList = inputEdgesRDD.union(backEdgesRDD).mapToPair(new EdgeListMapper());
+        }).map(new BackEdgesMapper());*/
+        JavaPairRDD<String, String>completeEdgeList = inputEdgesRDD.union(inputEdgesRDD.filter(new Function<String,Boolean>(){
+            public Boolean call(String s){
+                String [] parts = s.split("\\s+");
+                for (int i=3;i<parts.length; i++) {
+                    if (!parts[i].equals("."))
+                        parts[2] = parts[2].concat(parts[i]);
+                }
+                if(parts[2].equals(parts[0]))
+                    return false;
+                return true;
+            }
+        }).map(new BackEdgesMapper())).mapToPair(new EdgeListMapper());
 
         JavaRDD<scala.Tuple2<String,String>> intermediate = completeEdgeList.map(new InputVerticesGetter()).distinct();
-        JavaPairRDD<String,String> vidRDD = intermediate.map(new InputSourceGetter()).distinct().mapToPair(new VidMapper2()).persist(StorageLevel.MEMORY_AND_DISK());
+        JavaPairRDD<String,Long> vidRDD = JavaPairRDD.fromJavaRDD(intermediate.map(new InputSourceGetter()).distinct().zipWithIndex().map(new VidMapper2())).persist(StorageLevel.MEMORY_ONLY_SER());
 
-        JavaPairRDD<String,scala.Tuple2<String,String>> slbl_dlbl_svid = JavaPairRDD.fromJavaRDD(intermediate).join(vidRDD);
+        /*JavaPairRDD<Long, String> adjListVid = */JavaPairRDD.fromJavaRDD(intermediate).join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper()).join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper2()).reduceByKey(new AdjacencyListReducer()).sortByKey().coalesce(1).saveAsTextFile("FreebaseMetis");
 
-        JavaPairRDD<String, String> dlbl_svid = slbl_dlbl_svid.mapToPair(new JoinedRDDToPairRDDMapper());
+        //JavaPairRDD<String,String> adjListLabel = completeEdgeList.reduceByKey(new AdjacencyListReducer());
 
-        JavaPairRDD<Long, String> adjListVid = dlbl_svid.join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper2()).reduceByKey(new AdjacencyListReducer()).sortByKey();
+        //JavaRDD<scala.Tuple3<String,String,String>> vertexListRDD = filter(true).map(new VertexListMapper());
 
-        JavaPairRDD<String,String> adjListLabel = completeEdgeList.reduceByKey(new AdjacencyListReducer());
-
-        JavaRDD<scala.Tuple3<String,String,String>> vertexListRDD = filter(true).map(new VertexListMapper());
-
-        /*displayRDD(completeEdgeList, "completeEdgeList");
-        displayRDD(vidRDD, "vidRDD");
-        displayRDD(slbl_dlbl_svid, "slbl_dlbl_svid");
+        //displayRDD(completeEdgeList, "completeEdgeList");
+        //displayRDD(vidRDD, "vidRDD");
+        //displayRDD(slbl_dlbl_svid, "slbl_dlbl_svid");
         //displayRDD(dlbl_svid, "dlbl_svid");
-        displayRDD(adjListVid, "adjListVid");*/
+        //displayRDD(adjListVid, "adjListVid");
 
 
     }
