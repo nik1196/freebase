@@ -1,0 +1,6 @@
+(48,(label:String:<http://rdf.freebase.com/ns/m.06bmgw>$,10,p1:String:<>$))
+(49,(label:String:<http://rdf.freebase.com/ns/m.0y_4w3_>$,10,p1:String:<>$))
+(50,(label:String:<http://rdf.freebase.com/ns/automotive.engine_type>$,9,p1:String:<>$p2:String:<>$))
+(51,(label:String:<http://rdf.freebase.com/ns/m.01p2mc6>$,10,p1:String:<>$))
+(52,(label:String:<http://rdf.freebase.com/ns/automotive.trim_level.max_passengers>$,[[54,p1:String:<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>$][[35,p1:String:<http://rdf.freebase.com/ns/type.property.schema>$p2:String:<http://www.w3.org/2000/01/rdf-schema#domain>$][7,p1:String:<http://www.w3.org/2000/01/rdf-schema#range>$p2:String:<http://rdf.freebase.com/ns/type.property.expected_type>$]]][3,p1:String:<http://rdf.freebase.com/ns/type.object.type>$]))
+(53,(label:String:<http://rdf.freebase.com/ns/m.0x2spfl>$,10,p1:String:<>$))

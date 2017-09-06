@@ -4,11 +4,10 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.function.*;
 
 import java.util.*;
-
+import com.google.common.base.Optional;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
-import org.apache.spark.storage.StorageLevel;
-import scala.Tuple2;
+import org.apache.spark.broadcast.Broadcast;
 
 public class Driver {
     static JavaRDD<String> inputListRDD;
@@ -57,8 +56,10 @@ public class Driver {
         Logger.getLogger("akka").setLevel(Level.ERROR);
         String edgeFile = "/home/nikhil/repos/freebase/Freebase100.txt";
         SparkConf conf = new SparkConf().setAppName("Freebase");
+        conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        inputListRDD = sc.textFile(edgeFile).repartition(128);
+        //int total_cores = Integer.parseInt(conf.get("spark.executor.instances")) * Integer.parseInt(conf.get("spark.executor.cores"));
+        inputListRDD = sc.textFile(edgeFile).repartition(10);//total_cores*2);
 
         JavaRDD<String> inputEdgesRDD = filter(false);
      /*   JavaRDD<String> backEdgesRDD = inputEdgesRDD.filter(new Function<String,Boolean>(){
@@ -85,21 +86,27 @@ public class Driver {
                 return true;
             }
         }).map(new BackEdgesMapper())).mapToPair(new EdgeListMapper());
-
-        JavaRDD<scala.Tuple2<String,String>> intermediate = completeEdgeList.map(new InputVerticesGetter()).distinct();
-        JavaPairRDD<String,Long> vidRDD = JavaPairRDD.fromJavaRDD(intermediate.map(new InputSourceGetter()).distinct().zipWithIndex().map(new VidMapper2())).persist(StorageLevel.MEMORY_ONLY_SER());
-
-        /*JavaPairRDD<Long, String> adjListVid = */JavaPairRDD.fromJavaRDD(intermediate).join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper()).join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper2()).reduceByKey(new AdjacencyListReducer()).sortByKey().coalesce(1).saveAsTextFile("FreebaseMetis");
+        Broadcast<JavaPairRDD<String,String>> intermediateBroadcast = sc.broadcast(completeEdgeList.mapToPair(new InputVerticesGetter()).distinct());
+        JavaPairRDD<String,Long> vidRDD = intermediateBroadcast.value().map(new InputSourceGetter()).distinct().zipWithIndex().mapToPair(new VidMapper2());
+        /*JavaPairRDD<Long, String> adjListVid = */intermediateBroadcast.value().join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper()).join(vidRDD).mapToPair(new JoinedRDDToPairRDDMapper2()).reduceByKey(new AdjacencyListReducer()).sortByKey();//.saveAsTextFile("FreebaseMetis");
 
         //JavaPairRDD<String,String> adjListLabel = completeEdgeList.reduceByKey(new AdjacencyListReducer());
 
-        //JavaRDD<scala.Tuple3<String,String,String>> vertexListRDD = filter(true).map(new VertexListMapper());
+        JavaPairRDD<String,String> srcPropRDD = filter(true).mapToPair(new VertexListMapper()).reduceByKey(new VertexListReducer()).mapToPair(new VertexPropertyNumberAssigner());
+
+        JavaPairRDD<String, scala.Tuple2<Long,com.google.common.base.Optional<String>>> srcLabel_srcId_srcProp= vidRDD.leftOuterJoin(srcPropRDD);
+
+        JavaPairRDD<scala.Tuple2<String,String>,String > srcLabelSnkLabel_Eprops = completeEdgeList.mapToPair(new SinkGetter()).join(vidRDD).mapToPair(new SinkLabelReformatterMapper()).mapToPair(new EpropAsValue_Mapper()).reduceByKey(new Eprop_AsValue_Reducer());
+        JavaPairRDD<String, String> srcLabel_SnkLabelEprops = srcLabelSnkLabel_Eprops.mapToPair(new EdgePropertyNumberAssignerMapper()).mapToPair(new Snk_Eprop_AsValue_Mapper()).reduceByKey(new Snk_Eprop_AsValue_Reducer());
+        JavaPairRDD<Long, scala.Tuple2<String, String>> finalJsonFormat = srcLabel_srcId_srcProp.join(srcLabel_SnkLabelEprops).mapToPair(new Label_Id_Swap_Mapper());
+        finalJsonFormat.saveAsTextFile("jsonFormat");
 
         //displayRDD(completeEdgeList, "completeEdgeList");
         //displayRDD(vidRDD, "vidRDD");
         //displayRDD(slbl_dlbl_svid, "slbl_dlbl_svid");
         //displayRDD(dlbl_svid, "dlbl_svid");
         //displayRDD(adjListVid, "adjListVid");
+        displayRDD(finalJsonFormat, "finalJsonFormat");
 
 
     }
