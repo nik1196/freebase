@@ -94,7 +94,7 @@ public class Driver {
 
         JavaPairRDD<String,String> srcPropRDD = filter(true).mapToPair(new VertexListMapper()).reduceByKey(new VertexListReducer()).mapToPair(new VertexPropertyNumberAssigner());
 
-        JavaPairRDD<String, scala.Tuple2<Long,com.google.common.base.Optional<String>>> srcLabel_srcId_srcProp= vidRDD.leftOuterJoin(srcPropRDD);
+        JavaPairRDD<String, scala.Tuple2<Long,Optional<String>>> srcLabel_srcId_srcProp= vidRDD.leftOuterJoin(srcPropRDD);
 
         JavaPairRDD<scala.Tuple2<String,String>,String > srcLabelSnkLabel_Eprops = completeEdgeList.mapToPair(new SinkGetter()).join(vidRDD).mapToPair(new SinkLabelReformatterMapper()).mapToPair(new EpropAsValue_Mapper()).reduceByKey(new Eprop_AsValue_Reducer());
         JavaPairRDD<String, String> srcLabel_SnkLabelEprops = srcLabelSnkLabel_Eprops.mapToPair(new EdgePropertyNumberAssignerMapper()).mapToPair(new Snk_Eprop_AsValue_Mapper()).reduceByKey(new Snk_Eprop_AsValue_Reducer());
