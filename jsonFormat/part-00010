@@ -1,0 +1,5 @@
+(38,(label:String:<http://rdf.freebase.com/ns/m.05fl1b>$Optional.empty,10,p1:String:<>$))
+(39,(label:String:<http://rdf.freebase.com/ns/m.0zggpwy>$Optional.empty,10,p1:String:<>$))
+(40,(label:String:<http://rdf.freebase.com/ns/automotive.engine>$Optional.empty,9,p1:String:<>$p2:String:<>$))
+(41,(label:String:<http://rdf.freebase.com/ns/m.0n1y549>$Optional.empty,10,p1:String:<>$))
+(42,(label:String:<http://rdf.freebase.com/ns/type.datetime>$Optional.empty,8,p1:String:<>$p2:String:<>$))
