@@ -1,8 +1,8 @@
-import com.google.common.base.Optional;
+import org.apache.spark.api.java.Optional;
 import org.apache.spark.api.java.function.PairFunction;
 
 public class Label_Id_Swap_Mapper implements PairFunction<scala.Tuple2<String, scala.Tuple2<scala.Tuple2<Long,Optional<String>>,String>>, Long, scala.Tuple2<String,String>> {
-    public scala.Tuple2<Long, scala.Tuple2<String, String>>call(scala.Tuple2<String, scala.Tuple2<scala.Tuple2<Long, com.google.common.base.Optional<String>>,String>> s){
+    public scala.Tuple2<Long, scala.Tuple2<String, String>>call(scala.Tuple2<String, scala.Tuple2<scala.Tuple2<Long, Optional<String>>,String>> s){
         String replaceOptional = "label:String:"+s._1()+"$";
         try{
             replaceOptional+=s._2()._1()._2();

@@ -6,7 +6,7 @@ import scala.Tuple3;
 
 import java.util.HashMap;
 
-public class EdgeListMapper implements PairFunction<String, String, String> {
+public class EListMapper implements PairFunction<String, String, String> {
 
     public Tuple2<String, String> call(String s){
         String [] parts = s.split("\\s+");
